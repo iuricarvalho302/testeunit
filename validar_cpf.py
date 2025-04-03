@@ -9,18 +9,18 @@ def validar_cpf(cpf):
         bool: True se o CPF for válido, False caso contrário.
     """
 
-    # Remove caracteres não numéricos
+    
     cpf = ''.join(filter(str.isdigit, cpf))
 
-    # Verifica se o CPF tem 11 dígitos
+    
     if len(cpf) != 11:
         return False
 
-    # Verifica se todos os dígitos são iguais (CPF inválido)
+   
     if len(set(cpf)) == 1:
         return False
 
-    # Calcula os dígitos verificadores
+    
     cpf_9 = cpf[:9]
     soma = 0
     for i in range(9):
@@ -37,7 +37,7 @@ def validar_cpf(cpf):
     if digito_2 > 9:
         digito_2 = 0
 
-    # Verifica se os dígitos verificadores calculados são iguais aos do CPF
+    
     if cpf[9:] == str(digito_1) + str(digito_2):
         return True
     else:
